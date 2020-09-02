@@ -1,8 +1,8 @@
 <template>
     <div id="app" ref="app">
       <Loader v-if="loading" />
-      <Header ref="header" v-show="!loading" />
-      <main class="main" :style="{ 'padding-top': headerHeight + 'px', height: mainHeight + 'px' }" ref="main" v-show="!loading" >
+      <Header ref="header" :class="{opacity: loading}" />
+      <main class="main" :style="{ 'padding-top': headerHeight + 'px', height: mainHeight + 'px' }" ref="main" :class="{opacity: loading}" >
         <Congratulation :inputPhone="inputPhone" ref="congr"/>
         <Attention :inputPhone="inputPhone" ref="attention"/>
         <Shield :style="{ height: shieldHeight + 'px' }" :inputPhone="inputPhone" :widthSize="widthSize" ref="shield"/>
@@ -159,5 +159,9 @@ export default {
       width: 100%;
       height: 100%;
       background-color: white;
+  }
+
+  .opacity {
+    opacity: 0;
   }
 </style>
